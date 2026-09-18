@@ -13,15 +13,13 @@ print(f"vocab_size:  {vocab_size}")
 # encoding the str using the tokenizer
 encoded = tokenizer.encode(english_string)
 
-# compression ratio: how compact is the text represented / formula = bytes / tokens
-# can ued what is done in tok_eval.py
-encoded_bytes = english_string.encode('utf-8')
-ratio = len(encoded_bytes) / len(encoded)
-print(f"compression ratio: {ratio}")
-
-# sequence length: amount of tokens
+# Sequence length: amount of tokens
 seq_length = len(encoded)
 print (f"Sequence Length: {seq_length}")
+
+# Compression ratio: tokens per character
+compression_ratio =  seq_length/ len(english_string)
+print (f"Compression Ratio: {compression_ratio}")
 
 # visualizing what the tokens became
 tokens = []
@@ -29,4 +27,4 @@ for token_id in encoded:
     token = tokenizer.decode([token_id])
     tokens.append(token)
 
-print(f"tokens that are created \n {tokens}")
+print(f"tokens that are created: \n {tokens}")
